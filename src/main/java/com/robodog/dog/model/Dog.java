@@ -1,5 +1,11 @@
 package com.robodog.dog.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Dog {
 
     private String name;
@@ -8,13 +14,25 @@ public class Dog {
 
     private Breed breed;
 
-    public Dog (String name, int age, Breed breed){
+    @Id
+    private long id;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Dog() {
+    }
+
+    public Dog(String name, int age, Breed breed) {
         this.name = name;
         this.age = age;
         this.breed = breed;
-
     }
-
     public String getName() {
         return name;
     }
